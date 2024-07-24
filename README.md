@@ -1,7 +1,7 @@
 # OforiAnyinam
 
 Ofori-Anyinam_2024
-Code for RNA sequencing and metabolic modeling analyses in N Ofori-Anyinam, 2024
+Code for RNA sequencing and metabolic modeling analyses in B Ofori-Anyinam, 2024
 
 Jason H. Yang Lab @ Rutgers New Jersey Medical School
 
