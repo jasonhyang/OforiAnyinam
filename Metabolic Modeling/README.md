@@ -38,7 +38,4 @@ iMAT was applied to generate condition-specific models
 FLUX SAMPLING
 Flux variability analysis was performed in CobraPy by using optGpSampler. 10,000 flux samples were collected per condition.
 - iterate_pysampling.py
-- samples-wt.tsv
-- samples-bdq.tsv
-- samples-katg.tsv
-- samples-katg-bdq.tsv
+- flux-samples-summary.xlsx
