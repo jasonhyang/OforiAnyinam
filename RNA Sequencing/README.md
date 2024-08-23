@@ -10,5 +10,5 @@ These files were used to generate sequencing counts from raw FASTQ files:
 - GCF_000195955.2_ASM19595v2_genomic.gtf
 - process_reads.sh
 
-This R notebook file can be used to replicate the analysis on quantile normalization.
-- qSmooth.nb.html
+This R  file can be used to replicate the analysis on quantile normalization.
+- qSmooth.R
