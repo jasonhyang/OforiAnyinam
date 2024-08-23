@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2487.7">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px 'Helvetica Neue'; color: #262626; -webkit-text-stroke: #262626; min-height: 16.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px Courier; color: #262626; -webkit-text-stroke: #262626; background-color: #f2f2f2}
+    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px Courier; color: #262626; -webkit-text-stroke: #262626; background-color: #ffffff}
+    p.p5 {margin: 0.0px 0.0px 10.0px 0.0px; font: 14.0px 'Helvetica Neue'; color: #262626; -webkit-text-stroke: #262626}
+    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px Courier; color: #262626; -webkit-text-stroke: #262626; background-color: #f2f2f2; min-height: 16.0px}
+    span.s1 {font-kerning: none}
+    span.s2 {font-kerning: none; -webkit-text-stroke: 0px #000000}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1"></span><br></p>
+<h1 style="margin: 0.0px 0.0px 10.0px 0.0px; font: 38.0px 'Helvetica Neue'; color: #262626; -webkit-text-stroke: #262626"><span class="s1">qsmooth normalization TB RNAseq data</span></h1>
+<p class="p3"><span class="s1">library(qsmooth)</span></p>
+<p class="p4"><span class="s1">Registered S3 method overwritten by 'htmlwidgets':</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">  </span>method <span class="Apple-converted-space">          </span>from<span class="Apple-converted-space">         </span></span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">  </span>print.htmlwidget tools:rstudio</span></p>
+<p class="p4"><span class="s1">Registered S3 method overwritten by 'data.table':</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">  </span>method <span class="Apple-converted-space">          </span>from</span></p>
+<p class="p4"><span class="s1"><span class="Apple-converted-space">  </span>print.data.table<span class="Apple-converted-space">     </span></span></p>
+<p class="p3"><span class="s1">mtb_counts &lt;- read.csv("\\Mtb_counts.csv", header=TRUE)</span></p>
+<p class="p5"><span class="s1">Group by condition</span></p>
+<p class="p3"><span class="s1">sample_labels &lt;- c("WT1", "WT2", "WT3", "WT_BDQ1", "WT_BDQ2", "WT_BDQ3",<span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">                   </span>"katG1", "katG2", "katG3", "katG_BDQ1”, "</span><span class="s2">katG</span><span class="s1">_BDQ2", "</span><span class="s2">katG</span><span class="s1">_BDQ3")</span></p>
+<p class="p6"><span class="s1"></span><br></p>
+<p class="p3"><span class="s1"># Define groups based on sample labels</span></p>
+<p class="p3"><span class="s1">group_labels &lt;- c(“WT", "WT", "WT", "WT_BDQ", "</span><span class="s2">WT</span><span class="s1">_BDQ", "</span><span class="s2">WT</span><span class="s1">_BDQ",</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">                  </span>"katG", "katG", "katG", "katG_BDQ", "</span><span class="s2">katG_BDQ</span><span class="s1">", "</span><span class="s2">katG_BDQ</span><span class="s1">")</span></p>
+<p class="p6"><span class="s1"></span><br></p>
+<p class="p3"><span class="s1"># Create a data frame with sample labels and their corresponding groups</span></p>
+<p class="p3"><span class="s1">sample_df &lt;- data.frame(</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">  </span>Sample = sample_labels,</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">  </span>Group = group_labels</span></p>
+<p class="p3"><span class="s1">)</span></p>
+<p class="p6"><span class="s1"></span><br></p>
+<p class="p3"><span class="s1">print(sample_df)</span></p>
+<p class="p1"><span class="s1"></span><br></p>
+<p class="p3"><span class="s1">qs &lt;- qsmooth(mtb_counts[,-1], group_labels)</span></p>
+<p class="p6"><span class="s1"></span><br></p>
+<p class="p3"><span class="s1">dat &lt;- log2(qsmoothData(qs) + 1)</span></p>
+<p class="p3"><span class="s1">rownames(dat) &lt;- mtb_counts[,1]</span></p>
+<p class="p3"><span class="s1">write.csv(dat, file = "sample_groups.csv", row.names = FALSE)</span></p>
+</body>
+</html>
