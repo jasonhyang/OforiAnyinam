@@ -4,7 +4,7 @@ RNA sequencing analyses code for B Ofori-Anyinam, 2024
 
 Jason H. Yang Lab @ Rutgers New Jersey Medical School
 
-Author: Avi Shah
+Original Author: Avi Shah
 
 These files were used to generate sequencing counts from raw FASTQ files:
 - GCF_000195955.2_ASM19595v2_genomic.gtf
